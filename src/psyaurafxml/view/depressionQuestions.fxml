@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="psyaurafxml.controller.DepressionQuestionsController">
+    <children>
+        <VBox alignment="CENTER" spacing="10" layoutX="50" layoutY="50">
+            <Label fx:id="questionLabel" text="Question 1" wrapText="true" style="-fx-font-size: 16px;"/>
+            <VBox spacing="5">
+                <!-- ToggleGroup for options -->
+                <RadioButton fx:id="option1" text="Option 1"/>
+                <RadioButton fx:id="option2" text="Option 2"/>
+                <RadioButton fx:id="option3" text="Option 3"/>
+            </VBox>
+            <Button text="Suivant" onAction="#handleNext" style="-fx-font-size: 14px;"/>
+            <Label fx:id="scoreLabel" text="Score : 0" style="-fx-font-size: 14px;"/>
+        </VBox>
+    </children>
+</AnchorPane>
