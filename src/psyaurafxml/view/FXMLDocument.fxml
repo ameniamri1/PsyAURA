@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" type="StackPane" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="psyaurafxml.FXMLDocumentController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"  xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="psyaurafxml.controller.FXMLDocumentController">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="200.0">
          <children>
@@ -36,7 +36,7 @@
                         <Font name="Yu Gothic UI Light" size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnstart" layoutX="94.0" layoutY="303.0" mnemonicParsing="false" onAction="#navigateToNextScreen" style="-fx-text-fill: #2003a3; -fx-background-color: #FAF7F0;" text="Lancer l’exploration" />
+                  <Button fx:id="btnstart" layoutX="94.0" layoutY="303.0" mnemonicParsing="false" onAction="#navigateToNextScreen"     style="-fx-text-fill: #2003a3; -fx-background-color: #FAF7F0;" text="Lancer l’exploration" />
                   <Label alignment="CENTER" ellipsisString="" layoutX="31.0" layoutY="178.0" lineSpacing="1.0" prefHeight="79.0" prefWidth="257.0" style="-fx-text-fill: #1F316F;" text="Des tests uniques pour révéler votre personnalité et explorer votre potentiel." textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS" wrapText="true">
                      <font>
                         <Font name="Arial Nova Light" size="16.0" />
@@ -47,4 +47,4 @@
          </children>
       </AnchorPane>
    </children>
-</fx:root>
+</StackPane>

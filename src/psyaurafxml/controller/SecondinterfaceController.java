@@ -25,9 +25,9 @@ public class SecondinterfaceController implements Initializable {
         btnUtilisateur.setOnAction(event -> navigateToUserTests());
     }
 
-    private void navigateToAdminMenu() {
+    public void navigateToAdminMenu() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/psyaurafxml/adminMenu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/psyaurafxml/view/adminMenu.fxml"));
             Scene adminScene = new Scene(loader.load());
 
             Stage stage = (Stage) btnAdmin.getScene().getWindow();
@@ -38,9 +38,9 @@ public class SecondinterfaceController implements Initializable {
         }
     }
 
-    private void navigateToUserTests() {
+    public void navigateToUserTests() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/psyaurafxml/userTests.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/psyaurafxml/view/userTests.fxml"));
             Scene userScene = new Scene(loader.load());
 
             Stage stage = (Stage) btnUtilisateur.getScene().getWindow();

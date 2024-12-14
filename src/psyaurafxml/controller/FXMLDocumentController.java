@@ -21,9 +21,9 @@ public class FXMLDocumentController implements Initializable {
         btnstart.setOnAction(event -> navigateToNextScreen());
     }
 
-    private void navigateToNextScreen() {
+    public void navigateToNextScreen() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/psyaurafxml/secondinterface.fxml"));  // Chemin relatif
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/psyaurafxml/view/secondinterface.fxml"));  // Chemin relatif
             Scene nextScene = new Scene(loader.load());
 
             Stage stage = (Stage) btnstart.getScene().getWindow();

@@ -21,7 +21,7 @@ public class Psyaurafxml extends Application {
      @Override
     public void start(Stage stage) {
         try {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/FXMLDocument.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/psyaurafxml/view/FXMLDocument.fxml"));
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -35,7 +35,8 @@ public class Psyaurafxml extends Application {
             stage.setOnCloseRequest(event -> System.out.println("Application is closing..."));
 
         } catch (IOException e) {
-            System.err.println("erreur .");
+            System.err.println("Erreur : " + e.getMessage());
+            e.printStackTrace(); // To get more details about the exception
         }
     }
     public static void main(String[] args) {

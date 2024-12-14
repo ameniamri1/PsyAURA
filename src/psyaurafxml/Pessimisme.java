@@ -4,6 +4,7 @@
  */
 package psyaurafxml;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,10 +12,11 @@ import java.util.List;
  * @author amria
  */
 public class Pessimisme {
-        private List<Question> questions;
+        private ArrayList<Question> questions;
 
         public Pessimisme() {
-       questions.add(new Question("Lorsque vous rencontrez un problème, vous êtes confiant(e) de pouvoir le résoudre.",
+        questions=new ArrayList<>();
+        questions.add(new Question("Lorsque vous rencontrez un problème, vous êtes confiant(e) de pouvoir le résoudre.",
                 List.of("Oui", "Parfois", "Non"), List.of(1, 0, -1)));
         questions.add(new Question("Vous croyez que les choses finiront par s'améliorer, même après un échec.",
                 List.of("Oui", "Parfois", "Non"), List.of(1, 0, -1)));
@@ -28,7 +30,7 @@ public class Pessimisme {
                 List.of("Oui", "Parfois", "Non"), List.of(1, 0, -1)));
     }
 
-    public List<Question> getQuestions() {
+    public ArrayList<Question> getQuestions() {
         return questions;
     }
     public void ajouter(Question question) {

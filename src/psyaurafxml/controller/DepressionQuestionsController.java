@@ -61,7 +61,7 @@ public class DepressionQuestionsController  {
     }
 
     @FXML
-    private void initialize() {
+    public void initialize() {
         optionsGroup = new ToggleGroup();
         option1.setToggleGroup(optionsGroup);
         option2.setToggleGroup(optionsGroup);
@@ -70,7 +70,7 @@ public class DepressionQuestionsController  {
         afficherQuestion();
     }
 
-    private void afficherQuestion() {
+    public void afficherQuestion() {
         if (currentQuestionIndex < questions.size()) {
             Question question = questions.get(currentQuestionIndex);
             questionLabel.setText(question.getTexte());
@@ -86,7 +86,7 @@ public class DepressionQuestionsController  {
     }
 
     @FXML
-    private void handleNext() {
+    public void handleNext() {
         if (optionsGroup.getSelectedToggle() == null) {
             scoreLabel.setText("Veuillez sélectionner une option !");
             return;

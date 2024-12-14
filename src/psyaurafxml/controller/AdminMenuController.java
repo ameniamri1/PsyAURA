@@ -53,14 +53,14 @@ public class AdminMenuController implements Initializable {
         supprimerButton.setOnAction(event -> handleSupprimerQuestion());
     }
 
-    private void handleTypeTestSelection() {
+    public void handleTypeTestSelection() {
         String typeSelected = typeTestComboBox.getValue();
         if (typeSelected != null) {
             afficherQuestions(typeSelected);
         }
     }
 
-    private void afficherQuestions(String typeTest) {
+    public void afficherQuestions(String typeTest) {
         Object testInstance = testTypes.get(typeTest);
         if (testInstance instanceof Optimisme) {
             questionListView.getItems().setAll(((Optimisme) testInstance).getQuestions());
@@ -73,7 +73,7 @@ public class AdminMenuController implements Initializable {
         }
     }
 
-    private void handleAjouterQuestion() {
+    public void handleAjouterQuestion() {
         String typeTest = typeTestComboBox.getValue();
         if (typeTest != null && !questionField.getText().isEmpty()) {
             Object testInstance = testTypes.get(typeTest);
@@ -92,7 +92,7 @@ public class AdminMenuController implements Initializable {
         }
     }
 
-    private void handleModifierQuestion() {
+    public void handleModifierQuestion() {
         Question selectedQuestion = questionListView.getSelectionModel().getSelectedItem();
         String typeTest = typeTestComboBox.getValue();
         if (selectedQuestion != null && typeTest != null) {
@@ -113,7 +113,7 @@ public class AdminMenuController implements Initializable {
         }
     }
 
-    private void handleSupprimerQuestion() {
+    public void handleSupprimerQuestion() {
         Question selectedQuestion = questionListView.getSelectionModel().getSelectedItem();
         String typeTest = typeTestComboBox.getValue();
         if (selectedQuestion != null && typeTest != null) {
@@ -132,7 +132,7 @@ public class AdminMenuController implements Initializable {
         }
     }
 
-    private void afficherAlerte(String message) {
+    public void afficherAlerte(String message) {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Information");
         alert.setHeaderText(null);

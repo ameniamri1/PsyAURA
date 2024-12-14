@@ -63,7 +63,7 @@ public class OptimismeQuestionsController  {
     }
 
     @FXML
-    private void initialize() {
+    public void initialize() {
         optionsGroup = new ToggleGroup(); // Initialisation du groupe
         option1.setToggleGroup(optionsGroup);
         option2.setToggleGroup(optionsGroup);
@@ -72,7 +72,7 @@ public class OptimismeQuestionsController  {
         afficherQuestion();
     }
 
-    private void afficherQuestion() {
+    public void afficherQuestion() {
         if (currentQuestionIndex < questions.size()) {
             Question question = questions.get(currentQuestionIndex);
             questionLabel.setText(question.getTexte());
@@ -88,7 +88,7 @@ public class OptimismeQuestionsController  {
     }
 
     @FXML
-    private void handleNext() {
+    public void handleNext() {
         if (optionsGroup.getSelectedToggle() == null) {
             scoreLabel.setText("Veuillez sélectionner une option !");
             return;

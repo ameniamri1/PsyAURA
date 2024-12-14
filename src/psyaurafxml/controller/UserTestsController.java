@@ -33,9 +33,9 @@ public class UserTestsController implements Initializable {
         confiance.setOnAction(event -> navigateToQuestions("confianceQuestions.fxml"));
     }
 
-    private void navigateToQuestions(String fxmlFileName) {
+    public void navigateToQuestions(String fxmlFileName) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/psyaurafxml/" + fxmlFileName));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/psyaurafxml/view/" + fxmlFileName));
             Scene questionScene = new Scene(loader.load());
 
             Stage stage = (Stage) pessimisme.getScene().getWindow();

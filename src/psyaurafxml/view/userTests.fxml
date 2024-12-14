@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller=".UserTestsController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="psyaurafxml.controller.UserTestsController">
    <children>
       <Label layoutX="169.0" layoutY="43.0" text="choisissez le type de test">
          <font>
