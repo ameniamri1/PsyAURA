@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="psyaurafxml.controller.ConfianceQuestionsController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #B3E5FC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="psyaurafxml.controller.ConfianceQuestionsController">
     <children>
-        <VBox alignment="CENTER" spacing="10" layoutX="50" layoutY="50">
-            <Label fx:id="questionLabel" text="Question 1" wrapText="true" style="-fx-font-size: 16px;"/>
+        <VBox alignment="CENTER" layoutX="50" layoutY="50" spacing="10">
+            <Label fx:id="questionLabel" style="-fx-font-size: 16px;" text="Question 1" wrapText="true">
+            <font>
+               <Font name="Italic Outline Art" size="1.0" />
+            </font></Label>
             <VBox spacing="5">
                 <!-- ToggleGroup for options -->
-                <RadioButton fx:id="option1" text="Option 1"/>
-                <RadioButton fx:id="option2" text="Option 2"/>
-                <RadioButton fx:id="option3" text="Option 3"/>
+                <RadioButton fx:id="option1" style="-fx-background-color: Bleu clair;" text="Option 1" />
+                <RadioButton fx:id="option2" text="Option 2" />
+                <RadioButton fx:id="option3" text="Option 3" />
             </VBox>
-            <Button text="Suivant" onAction="#handleNext" style="-fx-font-size: 14px;"/>
-            <Label fx:id="scoreLabel" text="Score : 0" style="-fx-font-size: 14px;"/>
+            <Button onAction="#handleNext" style="-fx-font-size: 14px; -fx-background-color: #7A003D; -fx-text-fill: white;" text="Suivant" />
+            <Label fx:id="scoreLabel" style="-fx-font-size: 14px;" text="Score : 0" />
         </VBox>
     </children>
 </AnchorPane>
