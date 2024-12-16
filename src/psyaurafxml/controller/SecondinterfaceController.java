@@ -18,7 +18,9 @@ public class SecondinterfaceController implements Initializable {
 
     @FXML
     private Button btnUtilisateur;
-
+    @FXML
+    private Button retournerButton;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         btnAdmin.setOnAction(event -> navigateToAdminMenu());
@@ -45,6 +47,17 @@ public class SecondinterfaceController implements Initializable {
 
             Stage stage = (Stage) btnUtilisateur.getScene().getWindow();
             stage.setScene(userScene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void handleRetour() {
+        try {
+            // Remplacez par le chemin de votre scène précédente
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/psyaurafxml/view/FXMLDocument.fxml"))); 
+            Stage stage = (Stage) retournerButton.getScene().getWindow();
+            stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

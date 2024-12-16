@@ -3,18 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 package psyaurafxml.controller;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
 import psyaurafxml.Question;
 import psyaurafxml.Optimisme;
 import psyaurafxml.Pessimisme;
@@ -32,7 +36,9 @@ public class AdminMenuController implements Initializable {
     @FXML
     private TextField questionField;
     @FXML
-    private Button ajouterButton, modifierButton, supprimerButton;
+    private Button ajouterButton, modifierButton, supprimerButton,retournerButton;
+   
+   
 
     private Map<String, Object> testTypes;
 
@@ -138,6 +144,18 @@ public class AdminMenuController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+    @FXML
+    public void handleRetour() {
+        try {
+            // Remplacez par le chemin de votre scène précédente
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/psyaurafxml/view/secondinterface.fxml"))); 
+            Stage stage = (Stage) retournerButton.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

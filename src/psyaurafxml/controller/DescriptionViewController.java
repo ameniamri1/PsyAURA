@@ -5,20 +5,15 @@
 package psyaurafxml.controller;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
-
-import java.util.ArrayList;
-import java.util.List;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import psyaurafxml.Question;
 
@@ -27,9 +22,7 @@ import psyaurafxml.Question;
  *
  * @author amria
  */
-public class PessimismeQuestionsController   {
-
-  
+public class DescriptionViewController  {
 
     private List<Question> questions;
     private int currentQuestionIndex = 0;
@@ -50,32 +43,32 @@ public class PessimismeQuestionsController   {
     @FXML
     private Label scoreLabel;
     @FXML
-    private Button nextButton;
-    @FXML
     private Button retournerButton;
+    @FXML
 
-    private ToggleGroup optionsGroup; // Création du groupe pour les RadioButtons
+    private ToggleGroup optionsGroup;
 
-    public PessimismeQuestionsController() {
+    public DescriptionViewController (){
+        // Initialisation des questions
         questions = new ArrayList<>();
-        questions.add(new Question("Lorsque vous rencontrez un problème, vous êtes confiant(e) de pouvoir le résoudre.",
-                List.of("Oui", "Parfois", "Non"), List.of(1, 0, -1)));
-        questions.add(new Question("Vous croyez que les choses finiront par s'améliorer, même après un échec.",
-                List.of("Oui", "Parfois", "Non"), List.of(1, 0, -1)));
-        questions.add(new Question("Vous trouvez des opportunités même dans les situations difficiles.",
-                List.of("Oui", "Parfois", "Non"), List.of(1, 0, -1)));
-        questions.add(new Question("Vous avez tendance à voir le verre à moitié plein.",
-                List.of("Oui", "Parfois", "Non"), List.of(1, 0, -1)));
-        questions.add(new Question("Vous avez une attitude positive même lorsqu'il y a des obstacles.",
-                List.of("Oui", "Parfois", "Non"), List.of(1, 0, -1)));
-        questions.add(new Question("Vous croyez qu'il y a toujours une lumière au bout du tunnel.",
-                List.of("Oui", "Parfois", "Non"), List.of(1, 0, -1)));
+        questions.add(new Question("Vous vous sentez souvent fatigué(e), même après une bonne nuit de sommeil.",
+                List.of("Oui", "Parfois", "Non"), List.of(-1, 0, 1)));
+        questions.add(new Question("Vous avez perdu de l'intérêt pour les activités que vous aimiez auparavant.",
+                List.of("Oui", "Parfois", "Non"), List.of(-1, 0, 1)));
+        questions.add(new Question("Vous avez des difficultés à vous lever le matin.",
+                List.of("Oui", "Parfois", "Non"), List.of(-1, 0, 1)));
+        questions.add(new Question("Vous vous sentez souvent inutile ou coupable.",
+                List.of("Oui", "Parfois", "Non"), List.of(-1, 0, 1)));
+        questions.add(new Question("Vous avez du mal à prendre des décisions, même les plus simples.",
+                List.of("Oui", "Parfois", "Non"), List.of(-1, 0, 1)));
+        questions.add(new Question("Vous vous sentez souvent triste sans raison apparente.",
+                List.of("Oui", "Parfois", "Non"), List.of(-1, 0, 1)));
     }
 
     @FXML
     public void initialize() {
-        optionsGroup = new ToggleGroup(); // Initialisation du ToggleGroup
-        option1.setToggleGroup(optionsGroup); // Assignation au groupe
+        optionsGroup = new ToggleGroup();
+        option1.setToggleGroup(optionsGroup);
         option2.setToggleGroup(optionsGroup);
         option3.setToggleGroup(optionsGroup);
 
@@ -104,37 +97,18 @@ public class PessimismeQuestionsController   {
             return;
         }
 
-        // Calculer les points pour la question actuelle
         RadioButton selectedOption = (RadioButton) optionsGroup.getSelectedToggle();
         int selectedIndex = List.of(option1, option2, option3).indexOf(selectedOption);
 
         Question question = questions.get(currentQuestionIndex);
         score += question.getPoints().get(selectedIndex);
 
-        // Mettre à jour le score
         scoreLabel.setText("Score : " + score);
 
-        // Passer à la question suivante
         currentQuestionIndex++;
-        optionsGroup.selectToggle(null); // Décocher les options
+        optionsGroup.selectToggle(null);
         afficherQuestion();
     }
-@FXML
-public void handleFinishTest() {
-    // Charger la vue de description du test
-    try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/psyaurafxml/DescriptionView.fxml")); // Remplacez par le chemin de votre fichier FXML
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) nextButton.getScene().getWindow(); // Obtient la scène actuelle
-        stage.setScene(scene); // Changer la scène
-        stage.show();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
-
-@FXML
     public void handleRetour() {
         try {
             // Remplacez par le chemin de votre scène précédente
@@ -146,4 +120,5 @@ public void handleFinishTest() {
             e.printStackTrace();
         }
     }
+    
 }

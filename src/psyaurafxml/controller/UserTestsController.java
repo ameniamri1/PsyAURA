@@ -1,6 +1,5 @@
 package psyaurafxml.controller;
 
-import psyaurafxml.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,7 +23,8 @@ public class UserTestsController implements Initializable {
 
     @FXML
     private Button confiance;
-
+@FXML
+    private Button retournerButton;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         pessimisme.setOnAction(event -> navigateToQuestions("pessimismeQuestions.fxml"));
@@ -40,6 +40,17 @@ public class UserTestsController implements Initializable {
 
             Stage stage = (Stage) pessimisme.getScene().getWindow();
             stage.setScene(questionScene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void handleRetour() {
+        try {
+            // Remplacez par le chemin de votre scène précédente
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/psyaurafxml/view/secondinterface.java"))); 
+            Stage stage = (Stage) retournerButton.getScene().getWindow();
+            stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

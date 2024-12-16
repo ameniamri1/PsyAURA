@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="psyaurafxml.controller.DescriptionViewController">
+   <Label layoutX="198.0" layoutY="34.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Analyse du Test" />
+   <Label fx:id="typeLabel" layoutX="14.0" layoutY="83.0" style="-fx-font-size: 16px;" text="Type : " />
+   <Label fx:id="scoreLabel" layoutX="14.0" layoutY="239.0" style="-fx-font-size: 16px;" text="Score : " />
+   <Label fx:id="descriptionLabel" layoutX="14.0" layoutY="157.0" style="-fx-font-size: 14px;" text="Description : " wrapText="true" />
+  <Button layoutX="272.0" layoutY="341.0" onAction="#retourMenu" style="-fx-padding: 10px;" text="Retour" />
+    
+</AnchorPane>

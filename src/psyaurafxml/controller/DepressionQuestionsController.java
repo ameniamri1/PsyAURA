@@ -4,15 +4,21 @@
  */
 package psyaurafxml.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
 import psyaurafxml.Question;
 
 /**
@@ -40,6 +46,13 @@ public class DepressionQuestionsController  {
 
     @FXML
     private Label scoreLabel;
+    @FXML
+
+    private Button nextButton;
+    @FXML
+    private Button retournerButton;
+    
+    @FXML
 
     private ToggleGroup optionsGroup;
 
@@ -103,6 +116,32 @@ public class DepressionQuestionsController  {
         currentQuestionIndex++;
         optionsGroup.selectToggle(null);
         afficherQuestion();
+    }
+    @FXML
+public void handleFinishTest() {
+    // Charger la vue de description du test
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/psyaurafxml/DescriptionView.fxml")); // Remplacez par le chemin de votre fichier FXML
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) nextButton.getScene().getWindow(); // Obtient la scène actuelle
+        stage.setScene(scene); // Changer la scène
+        stage.show();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+@FXML
+    public void handleRetour() {
+        try {
+            // Remplacez par le chemin de votre scène précédente
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/psyaurafxml/view/FXMLDocumentController.java"))); 
+            Stage stage = (Stage) retournerButton.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
 }
