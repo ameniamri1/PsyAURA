@@ -7,9 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: BEIGE;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="psyaurafxml.controller.SecondinterfaceController">
-    <stylesheets>
-        <URL value="@secondinterface.css" />
-    </stylesheets>
+    
    <children>
       <Label layoutX="144.0" layoutY="63.0" prefHeight="53.0" prefWidth="359.0" style="-fx-text-fill: #800020; -fx-font-weight: bold;" text=" Choisissez votre Rôle :  " textFill="#cc1111" wrapText="true">
          <font>

@@ -6,11 +6,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="363.0" prefWidth="449.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="psyaurafxml.controller.AdminMenuController">
-    <ComboBox fx:id="typeTestComboBox" layoutX="14.0" layoutY="20.0" />
-    <ListView fx:id="questionListView" layoutX="70.0" layoutY="45.0" prefHeight="200" prefWidth="300" />
-    <TextField fx:id="questionField" layoutX="70.0" layoutY="262.0" prefWidth="300" />
-    <Button fx:id="ajouterButton" layoutX="70.0" layoutY="320.0" text="Ajouter" />
-    <Button fx:id="modifierButton" layoutX="194.0" layoutY="320.0" text="Modifier" />
-    <Button fx:id="supprimerButton" layoutX="298.0" layoutY="320.0" text="Supprimer" />
+<AnchorPane prefHeight="419.0" prefWidth="558.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="psyaurafxml.controller.AdminMenuController">
+    <ComboBox fx:id="typeTestComboBox" layoutX="14.0" layoutY="20.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #800020;" />
+    <ListView fx:id="questionListView" layoutX="89.0" layoutY="104.0" prefHeight="240.0" prefWidth="409.0" />
+    <TextField fx:id="questionField" layoutX="89.0" layoutY="67.0" prefHeight="25.0" prefWidth="409.0" />
+    <Button fx:id="ajouterButton" layoutX="168.0" layoutY="357.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #404724; -fx-text-fill: white;" text="Ajouter" />
+    <Button fx:id="modifierButton" layoutX="256.0" layoutY="357.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #9bae98; -fx-text-fill: white;" text="Modifier" />
+    <Button fx:id="supprimerButton" layoutX="347.0" layoutY="357.0" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #7A003D; -fx-text-fill: white;" text="Supprimer" />
 </AnchorPane>

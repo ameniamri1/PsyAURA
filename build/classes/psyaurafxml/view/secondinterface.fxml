@@ -6,22 +6,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="psyaurafxml.controller.SecondinterfaceController">
-    <stylesheets>
-        <URL value="@secondinterface.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: BEIGE;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="psyaurafxml.controller.SecondinterfaceController">
+    
    <children>
-      <Label layoutX="174.0" layoutY="60.0" style="-fx-text-fill: #800020;" text="choisissez votre role :  " textFill="#cc1111" wrapText="true">
+      <Label layoutX="144.0" layoutY="63.0" prefHeight="53.0" prefWidth="359.0" style="-fx-text-fill: #800020; -fx-font-weight: bold;" text=" Choisissez votre Rôle :  " textFill="#cc1111" wrapText="true">
          <font>
-            <Font name="Arial Nova" size="27.0" />
+            <Font name="Times New Roman" size="32.0" />
          </font>
       </Label>
-      <Button fx:id="btnAdmin" onAction="#navigateToAdminMenu" layoutX="174.0" layoutY="156.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="273.0" style="-fx-text-fill: #2003a3; -fx-background-color: #FAF7F0;" text="Administrateur">
+      <Button fx:id="btnAdmin" layoutX="164.0" layoutY="161.0" mnemonicParsing="false" onAction="#navigateToAdminMenu" prefHeight="43.0" prefWidth="273.0" style="-fx-text-fill: white; -fx-background-color: #34495e;" text="Administrateur">
          <font>
-            <Font size="32.0" />
+            <Font size="22.0" />
          </font>
       </Button>
-      <Button fx:id="btnUtilisateur" onAction="#navigateToUserTests" layoutX="174.0" layoutY="228.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="273.0" style="-fx-text-fill: #2003a3; -fx-background-color: #FAF7F0;" text="Utilisateur" />
+      <Button fx:id="btnUtilisateur" layoutX="164.0" layoutY="233.0" mnemonicParsing="false" onAction="#navigateToUserTests" prefHeight="43.0" prefWidth="273.0" style="-fx-text-fill: white; -fx-background-color: #34495e;" text="Utilisateur">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
       
    </children>
 </AnchorPane>
