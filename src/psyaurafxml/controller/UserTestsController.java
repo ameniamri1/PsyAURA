@@ -23,15 +23,20 @@ public class UserTestsController implements Initializable {
 
     @FXML
     private Button confiance;
-@FXML
+    @FXML
     private Button retournerButton;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        pessimisme.setOnAction(event -> navigateToQuestions("pessimismeQuestions.fxml"));
         optimisme.setOnAction(event -> navigateToQuestions("optimismeQuestions.fxml"));
+        pessimisme.setOnAction(event -> navigateToQuestions("pessimismeQuestions.fxml"));
         depression.setOnAction(event -> navigateToQuestions("depressionQuestions.fxml"));
         confiance.setOnAction(event -> navigateToQuestions("confianceQuestions.fxml"));
         retournerButton.setOnAction(event -> handleRetour());
+        pessimisme.setFocusTraversable(false);
+        optimisme.setFocusTraversable(false);
+        depression.setFocusTraversable(false);
+        confiance.setFocusTraversable(false);
+        retournerButton.setFocusTraversable(false);
 
     }
 
@@ -40,13 +45,16 @@ public class UserTestsController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/psyaurafxml/view/" + fxmlFileName));
             Scene questionScene = new Scene(loader.load());
 
-            Stage stage = (Stage) pessimisme.getScene().getWindow();
+            // Get the stage from any button's scene
+            Stage stage = (Stage) optimisme.getScene().getWindow();
             stage.setScene(questionScene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
     public void handleRetour() {
         try {
             // Remplacez par le chemin de votre scène précédente

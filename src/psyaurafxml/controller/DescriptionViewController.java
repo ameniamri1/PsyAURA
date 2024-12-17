@@ -23,7 +23,7 @@ import psyaurafxml.TypePersonnalite;
  *
  * @author amria
  */
-public class DescriptionViewController  {
+public class DescriptionViewController  {              //HEDHA CONTROLLER MTAA DEPRESSION, DOUB MATEKHDM L CONTROLLER B SHYH TW TEKHDMLK L INTERFACE
 
     private List<Question> questions;
     private int currentQuestionIndex = 0;
