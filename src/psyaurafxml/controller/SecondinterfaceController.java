@@ -25,6 +25,8 @@ public class SecondinterfaceController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         btnAdmin.setOnAction(event -> navigateToAdminMenu());
         btnUtilisateur.setOnAction(event -> navigateToUserTests());
+        retournerButton.setOnAction(event -> handleRetour());
+
     }
 
     public void navigateToAdminMenu() {

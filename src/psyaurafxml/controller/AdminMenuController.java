@@ -49,7 +49,9 @@ public class AdminMenuController implements Initializable {
                 "Pessimisme", new Pessimisme(),
                 "Dépression", new Dépression(),
                 "Confiance", new Confiance()
+                
         );
+        retournerButton.setOnAction(event -> handleRetour());
 
         typeTestComboBox.getItems().addAll(testTypes.keySet());
         typeTestComboBox.setOnAction(event -> handleTypeTestSelection());

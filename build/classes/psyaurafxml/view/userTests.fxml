@@ -24,11 +24,11 @@
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="confiance" layoutX="230.0" layoutY="245.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="139.0" style="-fx-background-color: #9bae98; -fx-font-weight: bold; -fx-text-fill: white;" text="Confiance">
+      <Button fx:id="confiance" layoutX="230.0"  layoutY="245.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="139.0" style="-fx-background-color: #9bae98; -fx-font-weight: bold; -fx-text-fill: white;" text="Confiance">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="retournerButton" layoutX="20.0" layoutY="357.0" mnemonicParsing="false" text="RETOUR" />
+      <Button fx:id="retournerButton" layoutX="20.0" layoutY="357.0" mnemonicParsing="false" text="RETOUR" onAction="#handleRetour" />
 
    </children>
    

@@ -31,6 +31,8 @@ public class UserTestsController implements Initializable {
         optimisme.setOnAction(event -> navigateToQuestions("optimismeQuestions.fxml"));
         depression.setOnAction(event -> navigateToQuestions("depressionQuestions.fxml"));
         confiance.setOnAction(event -> navigateToQuestions("confianceQuestions.fxml"));
+        retournerButton.setOnAction(event -> handleRetour());
+
     }
 
     public void navigateToQuestions(String fxmlFileName) {
@@ -48,7 +50,7 @@ public class UserTestsController implements Initializable {
     public void handleRetour() {
         try {
             // Remplacez par le chemin de votre scène précédente
-            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/psyaurafxml/view/secondinterface.java"))); 
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/psyaurafxml/view/secondinterface.fxml"))); 
             Stage stage = (Stage) retournerButton.getScene().getWindow();
             stage.setScene(scene);
             stage.show();

@@ -9,6 +9,6 @@
    <Label fx:id="typeLabel" layoutX="14.0" layoutY="83.0" style="-fx-font-size: 16px;" text="Type : " />
    <Label fx:id="scoreLabel" layoutX="14.0" layoutY="239.0" style="-fx-font-size: 16px;" text="Score : " />
    <Label fx:id="descriptionLabel" layoutX="14.0" layoutY="157.0" style="-fx-font-size: 14px;" text="Description : " wrapText="true" />
-  <Button layoutX="272.0" layoutY="341.0" onAction="#retourMenu" style="-fx-padding: 10px;" text="Retour" />
+  <Button layoutX="272.0" fx:id="retournerButton" layoutY="341.0" onAction="#handleRetour" style="-fx-padding: 10px;" text="Retour" />
     
 </AnchorPane>

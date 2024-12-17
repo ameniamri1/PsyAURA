@@ -21,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import psyaurafxml.Question;
+import psyaurafxml.TypePersonnalite;
 
 /**
  * FXML Controller class
@@ -50,7 +51,7 @@ public class PessimismeQuestionsController   {
     @FXML
     private Label scoreLabel;
     @FXML
-    private Button nextButton;
+    private Button descriptionButton;
     @FXML
     private Button retournerButton;
 
@@ -78,6 +79,9 @@ public class PessimismeQuestionsController   {
         option1.setToggleGroup(optionsGroup); // Assignation au groupe
         option2.setToggleGroup(optionsGroup);
         option3.setToggleGroup(optionsGroup);
+        retournerButton.setOnAction(event -> handleRetour());
+        descriptionButton.setOnAction(event -> handleFinishTest());
+
 
         afficherQuestion();
     }
@@ -89,22 +93,24 @@ public class PessimismeQuestionsController   {
             option1.setText(question.getOptions().get(0));
             option2.setText(question.getOptions().get(1));
             option3.setText(question.getOptions().get(2));
+            descriptionButton.setDisable(true);
         } else {
             questionLabel.setText("Quiz terminé !");
             option1.setDisable(true);
             option2.setDisable(true);
             option3.setDisable(true);
+            descriptionButton.setDisable(false);
+
         }
     }
 
     @FXML
     public void handleNext() {
         if (optionsGroup.getSelectedToggle() == null) {
-            scoreLabel.setText("Veuillez sélectionner une option !");
+        showErrorDialog("Sélection requise", "Veuillez sélectionner une option avant de continuer.");
             return;
         }
 
-        // Calculer les points pour la question actuelle
         RadioButton selectedOption = (RadioButton) optionsGroup.getSelectedToggle();
         int selectedIndex = List.of(option1, option2, option3).indexOf(selectedOption);
 
@@ -119,31 +125,100 @@ public class PessimismeQuestionsController   {
         optionsGroup.selectToggle(null); // Décocher les options
         afficherQuestion();
     }
+    /*
 @FXML
 public void handleFinishTest() {
     // Charger la vue de description du test
-    try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/psyaurafxml/DescriptionView.fxml")); // Remplacez par le chemin de votre fichier FXML
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) nextButton.getScene().getWindow(); // Obtient la scène actuelle
-        stage.setScene(scene); // Changer la scène
-        stage.show();
+    try { 
+       Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/psyaurafxml/view/DescriptionView.fxml"))); 
+            Stage stage = (Stage) descriptionButton.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
     } catch (IOException e) {
         e.printStackTrace();
     }
 }
-
+*/
+    
+    
+    private void showErrorDialog(String title, String content) {
+    javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
+    alert.setTitle(title);
+    alert.setHeaderText(null);
+    alert.setContentText(content);
+    alert.showAndWait();
+}
 @FXML
     public void handleRetour() {
         try {
-            // Remplacez par le chemin de votre scène précédente
             Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/psyaurafxml/view/userTests.fxml"))); 
             Stage stage = (Stage) retournerButton.getScene().getWindow();
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
+            showErrorDialog("Erreur de chargement", "Impossible de charger l'interface utilisateur des tests.");
+
         }
     }
+     public int getScore() {
+        return score;
+    }
+     
+          public void terminerTest() {
+    // Vérifier si toutes les questions ont été répondues
+    if (currentQuestionIndex >= questions.size()) {
+        // Déterminer le type de personnalité basé sur le score
+        TypePersonnalite typePersonnalite;
+
+        if (score <= -5) {
+    typePersonnalite = new TypePersonnalite(
+        "Pessimiste",
+        "Votre pessimisme élevé vous pousse à éviter les risques, mais il peut également vous exposer à des états de stress chronique. Vous pourriez bénéficier de techniques de gestion du stress."
+    );
+} else if (score <= -3) {
+    typePersonnalite = new TypePersonnalite(
+        "Modérément pessimiste",
+        "Votre perception pessimiste vous aide à anticiper les problèmes, mais il est important de ne pas négliger les opportunités positives."
+    );
+} else if (score <= 0) {
+    typePersonnalite = new TypePersonnalite(
+        "Legerement pessimiste",
+        "Votre tendance au pessimisme est légère, ce qui peut vous rendre prudent tout en laissant place à des approches constructives."
+    );
+} else {
+    typePersonnalite = new TypePersonnalite(
+        "Pas de signes de pessimisme ",
+        "Vous êtes très peu pessimiste, ce qui est une force, mais soyez attentif à ne pas ignorer complètement les éventuels dangers."
+    );
+}
+
+
+        try {
+            // Charger la vue de description à partir du fichier FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/psyaurafxml/view/DescriptionView.fxml"));
+            Parent root = loader.load();
+
+            // Récupérer le contrôleur de la vue de description
+            DescriptionViewController controller = loader.getController();
+
+            // Initialiser la vue de description avec le type de personnalité et le score obtenus
+            controller.initialize(typePersonnalite, score);
+
+            // Afficher la nouvelle vue (interface de description)
+            Stage stage = (Stage) questionLabel.getScene().getWindow(); // Obtenir la fenêtre actuelle
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            // Gérer les erreurs de chargement de la vue
+            e.printStackTrace();
+        }
+    } else {
+        // Message pour demander de compléter toutes les questions avant de terminer
+        scoreLabel.setText("Terminez toutes les questions avant de soumettre !");
+    }
+}
+@FXML
+public void handleFinishTest() {
+    terminerTest();
+}
 }

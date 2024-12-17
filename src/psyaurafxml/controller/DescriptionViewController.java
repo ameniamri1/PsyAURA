@@ -16,6 +16,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import psyaurafxml.Question;
+import psyaurafxml.TypePersonnalite;
 
 /**
  * FXML Controller class
@@ -48,7 +49,7 @@ public class DescriptionViewController  {
 
     private ToggleGroup optionsGroup;
 
-    public DescriptionViewController (){
+    public DescriptionViewController  (){
         // Initialisation des questions
         questions = new ArrayList<>();
         questions.add(new Question("Vous vous sentez souvent fatigué(e), même après une bonne nuit de sommeil.",
@@ -66,7 +67,7 @@ public class DescriptionViewController  {
     }
 
     @FXML
-    public void initialize() {
+    public void initialize(TypePersonnalite typePersonnalite, int score) {
         optionsGroup = new ToggleGroup();
         option1.setToggleGroup(optionsGroup);
         option2.setToggleGroup(optionsGroup);
